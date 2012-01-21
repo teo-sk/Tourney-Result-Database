@@ -1,11 +1,9 @@
 <?php
 
-class Payout {
+Class Model {
     private $db;
     private $tableName;
-    private $id;
-    private $place;
-    private $amount;
+    private $id;    
 
     public function __construct($db, $tableName) {
         $this->db = $db;
@@ -30,34 +28,10 @@ class Payout {
 
     }
 
-    public function getPlace() {
-        return $this->place;
-    }
-
-    public function setPlace($place) {
-        $this->place = $place;
-    }
-
-    public function getAmount() {
-        return $this->amount;
-    }
-    
-    public function setAmount($amount) {
-        $this->amount = $amount;
-    }
-
     public function getItem() {
         $this->db->where('id', $this->getId());
         $results = $this->db->get($this->getTableName());
         return $results;
-    }
-
-    public function setItem(){
-        $insertData = array(
-            'place' => $this->getPlace(),
-            'amount' => $this->getAmount()
-        );
-        $this->db->insert($this->getTableName(), $insertData);
     }
 
 }

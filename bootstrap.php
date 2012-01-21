@@ -19,6 +19,6 @@ function __autoload($class_name)
 include 'config.php';
 
 $db = new MysqliDB($db_server, $db_user, $db_pass, $db_name);
-$payout = new Payout($db, $payout_table);
+$payout = new Model_Payout($db, $payout_table);
 
 ?>
