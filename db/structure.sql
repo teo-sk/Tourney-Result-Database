@@ -30,8 +30,7 @@ DROP TABLE IF EXISTS `tourney_payouts`;
         
 CREATE TABLE `tourney_payouts` (
   `tourney` INTEGER(4) NOT NULL,
-  `payout` INTEGER(4) NOT NULL,
-  PRIMARY KEY (`payout`)
+  `payout` INTEGER(4) NOT NULL
 ) COMMENT 'cross table defining relations between tourneys and payouts';
 
 -- ---
@@ -57,7 +56,7 @@ DROP TABLE IF EXISTS `entries`;
         
 CREATE TABLE `entries` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
-  `tourney` INTEGER(4) NOT NULL DEFAULT NULL,
+  `tourney` INTEGER(4) NOT NULL,
   `place` INTEGER(2) NULL DEFAULT NULL,
   `knockouts` INTEGER(4) NULL DEFAULT NULL,
   `date_added` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -80,16 +79,3 @@ ALTER TABLE `entries` ADD FOREIGN KEY (tourney) REFERENCES `tourneys` (`id`);
 -- ALTER TABLE `tourney_payouts` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `payouts` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `entries` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- ---
--- Test Data
--- ---
-
--- INSERT INTO `tourneys` (`id`,`title`,`buy_in`,`entrants`) VALUES
--- ('','','','');
--- INSERT INTO `tourney_payouts` (`tourney`,`payout`) VALUES
--- ('','');
--- INSERT INTO `payouts` (`id`,`place`,`amount`) VALUES
--- ('','','');
--- INSERT INTO `entries` (`id`,`tourney`,`place`,`knockouts`,`date_added`) VALUES
--- ('','','','','');
