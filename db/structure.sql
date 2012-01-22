@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS `tourneys`;
 CREATE TABLE `tourneys` (
   `id` INTEGER(4) NULL AUTO_INCREMENT DEFAULT NULL,
   `title` VARCHAR(255) NOT NULL,
-  `buy_in` DECIMAL(8) NULL,
+  `buy_in` DECIMAL(20,10) NULL,
   `entrants` INTEGER(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) COMMENT 'table containing tourney definitions';
@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS `payouts`;
 CREATE TABLE `payouts` (
   `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
   `place` INTEGER NOT NULL DEFAULT 0 COMMENT '0 for knockout bounty',
-  `amount` DECIMAL(8) NOT NULL,
+  `amount` DECIMAL(20,10) NOT NULL,
   PRIMARY KEY (`id`)
 ) COMMENT 'table containing payout definitions';
 
