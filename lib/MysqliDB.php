@@ -222,6 +222,10 @@ class MysqliDB {
         return $this;
     }
 
+    public function getInsertId() {
+        return $this->_mysqli->insert_id;
+    }
+
     /**
      * This method is needed for prepared statements. They require
      * the data type of the field to be bound with "i" s", etc.
