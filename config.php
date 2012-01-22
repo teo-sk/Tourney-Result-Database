@@ -6,5 +6,6 @@ $db_pass = '';
 $db_name = 'trdb';
 
 $payout_table = 'payouts';
+$tourney_table = 'tourneys';
 
 ?>

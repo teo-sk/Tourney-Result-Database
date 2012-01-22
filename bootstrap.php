@@ -20,5 +20,6 @@ include 'config.php';
 
 $db = new MysqliDB($db_server, $db_user, $db_pass, $db_name);
 $payout = new Model_Payout($db, $payout_table);
+$tourney = new Model_Tourney($db, $tourney_table);
 
 ?>
