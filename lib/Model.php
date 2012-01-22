@@ -28,12 +28,20 @@ Class Model {
 
     }
 
+    public function getDb() {
+        return $this->db;
+    }
+
     public function getItem() {
         $this->db->where('id', $this->getId());
+        $result['item'] = $this->db->get($this->getTableName());
+        return $result;
+    }
+
+    public function listItems() {
         $results = $this->db->get($this->getTableName());
         return $results;
     }
-
 }
 
 ?>
