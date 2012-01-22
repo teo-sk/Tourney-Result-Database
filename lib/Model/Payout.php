@@ -25,7 +25,8 @@ class Model_Payout extends Model {
             'place' => $this->getPlace(),
             'amount' => $this->getAmount()
         );
-        $this->db->insert($this->getTableName(), $insertData);
+        $this->getDb()->insert($this->getTableName(), $insertData);
+        $this->setId($this->getDb()->getInsertId());
     }
 
 }
