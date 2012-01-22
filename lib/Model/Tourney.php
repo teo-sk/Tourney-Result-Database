@@ -1,5 +1,6 @@
 <?php
 
+//@TODO clean up methods
 class Model_Tourney extends Model {
     private $title;
     private $entrants;
@@ -75,6 +76,7 @@ class Model_Tourney extends Model {
     }
 
     private function fetchTourneyPayouts($tourneyId){
+        //@TODO find a way to store table names and column values in properties
         $params = array($tourneyId);
         $resutls = $this->getDb()->rawQuery("
         SELECT p.id, p.place, p.amount FROM payouts p 
